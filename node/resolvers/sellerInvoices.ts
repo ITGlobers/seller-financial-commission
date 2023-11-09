@@ -22,11 +22,33 @@ export const sellerInvoices = async (
     ...params.sellerInvoiceParams.pagination,
   }
 
-  const invoices = await marketplace.invoicesBySeller(
+  const invoices: any = await marketplace.invoicesBySeller(
     sellerAccount,
     marketplaceReference,
     filter
   )
+
+  invoices.data = invoices.data.map((invoice: any) => {
+    const { id, invoiceCreatedDate } = invoice
+
+    const newId = `${id.split('_')[0]}_${invoiceCreatedDate.replace(
+      /-/g,
+      ''
+    )}_${id.split('_')[id.split('_').length - 1]}`
+
+    return {
+      ...invoice,
+      columnId: {
+        href: id,
+        idVisible: newId,
+      },
+      downloadFiles: {
+        id,
+        sellerName: invoice.seller.name,
+        sellerId: invoice.seller.id,
+      },
+    }
+  })
 
   return invoices
 }

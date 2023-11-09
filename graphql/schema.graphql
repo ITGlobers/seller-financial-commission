@@ -5,6 +5,12 @@ type Query {
   sellerInvoices(sellerInvoiceParams: SellerInvoiceParams): ListInvoices
     @cacheControl(scope: PRIVATE, maxAge: LONG)
   """
+  Request the marketplace to retrieve current seller's invoices
+  """
+  searchPayoutReport(
+    searchPayoutReportParams: SearchPayoutReportParams
+  ): PayoutReportsResponse @cacheControl(scope: PRIVATE, maxAge: LONG)
+  """
   Request the marketplace to retrieve an Invoice
   """
   getInvoice(id: String!): Invoice @cacheControl(scope: PRIVATE, maxAge: SHORT)

@@ -20,7 +20,7 @@ export default class MarketplaceAppClient extends IOClient {
     super(context, {
       ...options,
       authType: AuthType.bearer,
-      baseURL: `${protocol}://app.io.vtex.com/vtex.${appName}/v0`,
+      baseURL: `${protocol}://app.io.vtex.com/obidev.${appName}/v0`,
       name: appName,
       headers: {
         ...options?.headers,
@@ -37,8 +37,41 @@ export default class MarketplaceAppClient extends IOClient {
     id: string,
     marketplaceReference: MarketplaceReference
   ) {
+    console.info(
+      '🚀 ~ file: index.ts:42 ~ MarketplaceAppClient ~ this.routes.invoiceById(sellerId, id, marketplaceReference):',
+      this.routes.invoiceById(sellerId, id, marketplaceReference)
+    )
+
     return this.http.get(
       this.routes.invoiceById(sellerId, id, marketplaceReference)
+    )
+  }
+
+  public async getInvoiceExternalFile(
+    id: string,
+    type: string,
+    marketplaceReference: MarketplaceReference
+  ) {
+    return this.http.get(
+      this.routes.invoiceFile(id, type, marketplaceReference),
+      {
+        responseType: 'arraybuffer',
+      }
+    )
+  }
+
+  public async getPayoutExternalFile(
+    id: string,
+    type: string,
+    marketplaceReference: MarketplaceReference
+  ) {
+    console.info(this.routes.payoutsFile(id, type, marketplaceReference))
+
+    return this.http.get(
+      this.routes.payoutsFile(id, type, marketplaceReference),
+      {
+        responseType: 'arraybuffer',
+      }
     )
   }
 
@@ -62,6 +95,19 @@ export default class MarketplaceAppClient extends IOClient {
       this.routes.invoices(sellerId, marketplaceReference),
       filters
     )
+  }
+
+  public async payoutsBySeller(
+    sellerId: string,
+    marketplaceReference: MarketplaceReference,
+    filters: FlatFilters
+  ) {
+    console.info(this.routes.payouts(sellerId, marketplaceReference))
+    console.info({ ...filters, sellerId })
+
+    return this.http.get(this.routes.payouts(sellerId, marketplaceReference), {
+      params: { ...filters, sellerId },
+    })
   }
 
   public async sellerOrders(
@@ -91,6 +137,12 @@ export default class MarketplaceAppClient extends IOClient {
         id: string,
         { account, workspace }: MarketplaceReference
       ) => `/${account}/${workspace}/${baseRoute}/${sellerId}/invoice/${id}`,
+      invoiceFile: (
+        id: string,
+        type: string,
+        { account, workspace }: MarketplaceReference
+      ) =>
+        `/${account}/${workspace}/_v/policy/external/financial-commission/invoice/file/${id}/type/${type}`,
       newInvoice: (
         sellerId: string,
         { account, workspace }: MarketplaceReference
@@ -99,6 +151,16 @@ export default class MarketplaceAppClient extends IOClient {
         sellerId: string,
         { account, workspace }: MarketplaceReference
       ) => `/${account}/${workspace}/${baseRoute}/${sellerId}/invoices`,
+      payouts: (
+        sellerId: string,
+        { account, workspace }: MarketplaceReference
+      ) => `/${account}/${workspace}/${baseRoute}/payout/${sellerId}/report`,
+      payoutsFile: (
+        id: string,
+        type: string,
+        { account, workspace }: MarketplaceReference
+      ) =>
+        `/${account}/${workspace}/_v/policy/external/financial-commission/payout/file/${id}/type/${type}`,
       orders: ({ account, workspace }: MarketplaceReference, query: string) =>
         `/${account}/${workspace}/_v/policy/private/orders?${query}`,
       template: ({ account, workspace }: MarketplaceReference) =>

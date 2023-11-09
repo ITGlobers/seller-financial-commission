@@ -32,7 +32,7 @@ Add the components financial app in your new apps in the section dependencies of
 
 ```powershell
 "dependencies":{
-  "vtex.components-financial-commission": "0.x"
+  "obidev.components-financial-commission": "0.x"
 }
 ```
 

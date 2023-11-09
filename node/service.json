@@ -1,7 +1,21 @@
 {
   "memory": 256,
-  "ttl": 30,
+  "ttl": 60,
   "timeout": 5,
   "minReplicas": 2,
-  "maxReplicas": 5
+  "maxReplicas": 4,
+  "routes": {
+    "invoiceExternalFile": {
+      "path": "/_v/private/financial-commission/external/invoice/file/:id/type/:type",
+      "public": true
+    },
+    "payoutReportFile": {
+      "path": "/_v/private/financial-commission/external/payout/file/:id/type/:type",
+      "public": true
+    },
+    "ping": {
+      "path": "/_v/financial-commission/ping",
+      "public": true
+    }
+  }
 }

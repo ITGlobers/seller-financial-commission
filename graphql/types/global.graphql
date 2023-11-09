@@ -15,15 +15,8 @@ input Dates {
 }
 
 type ListInvoices {
-  data: [InvoiceList]
+  data: [Invoice]
   pagination: PaginationInvoice
-}
-
-type InvoiceList {
-  id: String
-  status: String
-  invoiceCreatedDate: String
-  totalizers: Totalizers
 }
 
 type Totalizers {
@@ -40,7 +33,19 @@ type PaginationInvoice {
 
 scalar JSONData
 
+type ColumnId {
+  href: String
+  idVisible: String
+}
+
+type DownloadFiles {
+  id: String
+  sellerName: String
+  sellerId: String
+}
+
 type Invoice {
+  id: String
   status: String
   invoiceCreatedDate: String
   seller: SellerInvoiceData
@@ -48,6 +53,8 @@ type Invoice {
   totalizers: Totalizers
   comment: String
   jsonData: JSONData
+  columnId: ColumnId
+  downloadFiles: DownloadFiles
 }
 
 type SellerInvoiceData {
@@ -81,6 +88,25 @@ input SearchOrdersParams {
 type SearchOrdersResponse {
   data: [OrderSearch]
   paging: PagingOrders
+}
+
+input SearchPayoutReportParams {
+  sellerName: String!
+  dates: Dates!
+  pagination: Pagination!
+}
+
+type PayoutReportResponse {
+  id: String
+  reportCreatedDate: String
+  seller: SellerInvoiceData
+  payoutReportFileName: String
+  jsonData: String
+}
+
+type PayoutReportsResponse {
+  data: [PayoutReportResponse]
+  pagination: PaginationInvoice
 }
 
 type OrderSearch {

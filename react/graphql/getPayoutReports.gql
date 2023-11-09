@@ -1,0 +1,19 @@
+query GET_PAYOUT_REPORTS($params: SearchPayoutReportParams) {
+  searchPayoutReport(searchPayoutReportParams: $params) {
+    data {
+      id
+      reportCreatedDate
+      payoutReportFileName
+      jsonData
+      seller {
+        id
+        name
+      }
+    }
+    pagination {
+      total
+      page
+      pageSize
+    }
+  }
+}

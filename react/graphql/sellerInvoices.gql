@@ -9,6 +9,15 @@ query SELLER_INVOICES($sellerInvoiceParams: SellerInvoiceParams) {
         fee
         total
       }
+      columnId {
+        href
+        idVisible
+      }
+      downloadFiles {
+        id
+        sellerName
+        sellerId
+      }
     }
     pagination {
       total

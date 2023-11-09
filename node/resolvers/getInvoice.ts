@@ -27,5 +27,7 @@ export const getInvoice = async (
     marketplaceReference
   )
 
-  return invoice
+  const jsonData = JSON.parse(invoice.jsonData)
+
+  return { ...invoice, jsonData }
 }
