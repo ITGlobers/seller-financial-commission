@@ -37,11 +37,6 @@ export default class MarketplaceAppClient extends IOClient {
     id: string,
     marketplaceReference: MarketplaceReference
   ) {
-    console.info(
-      '🚀 ~ file: index.ts:42 ~ MarketplaceAppClient ~ this.routes.invoiceById(sellerId, id, marketplaceReference):',
-      this.routes.invoiceById(sellerId, id, marketplaceReference)
-    )
-
     return this.http.get(
       this.routes.invoiceById(sellerId, id, marketplaceReference)
     )
@@ -65,8 +60,6 @@ export default class MarketplaceAppClient extends IOClient {
     type: string,
     marketplaceReference: MarketplaceReference
   ) {
-    console.info(this.routes.payoutsFile(id, type, marketplaceReference))
-
     return this.http.get(
       this.routes.payoutsFile(id, type, marketplaceReference),
       {
@@ -102,9 +95,6 @@ export default class MarketplaceAppClient extends IOClient {
     marketplaceReference: MarketplaceReference,
     filters: FlatFilters
   ) {
-    console.info(this.routes.payouts(sellerId, marketplaceReference))
-    console.info({ ...filters, sellerId })
-
     return this.http.get(this.routes.payouts(sellerId, marketplaceReference), {
       params: { ...filters, sellerId },
     })

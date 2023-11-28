@@ -1,5 +1,5 @@
 interface SearchPayoutReportParams {
-  sellerName: string
+  sellerId: string
   dates: {
     startDate: string
     endDate: string

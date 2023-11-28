@@ -1,7 +1,7 @@
 {
   "vendor": "obidev",
   "name": "seller-financial-commission",
-  "version": "0.0.3-beta.5",
+  "version": "0.0.4-beta.0",
   "title": "Financial commission for sellers",
   "description": "",
   "builders": {
@@ -13,7 +13,7 @@
     "graphql": "1.x"
   },
   "dependencies": {
-    "obidev.components-financial-commission": "1.0.3-seller.5",
+    "obidev.components-financial-commission": "1.0.4-beta.0",
     "vtex.render-runtime": "8.x"
   },
   "registries": ["smartcheckout"],

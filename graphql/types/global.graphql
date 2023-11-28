@@ -91,7 +91,7 @@ type SearchOrdersResponse {
 }
 
 input SearchPayoutReportParams {
-  sellerName: String!
+  sellerId: String!
   dates: Dates!
   pagination: Pagination!
 }
