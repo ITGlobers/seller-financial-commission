@@ -5,6 +5,7 @@ import { createInvoice } from './createInvoice'
 import { sellerInvoices } from './sellerInvoices'
 import { sellerOrders } from './sellerOrders'
 import { searchPayoutReport } from './sellerPayouts'
+import { getPayout } from './getPayoutById'
 
 export const queries = {
   sellerInvoices,
@@ -12,6 +13,7 @@ export const queries = {
   sellerOrders,
   getTemplate,
   searchPayoutReport,
+  getPayout,
 }
 
 export const mutations = {

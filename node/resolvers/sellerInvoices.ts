@@ -29,12 +29,17 @@ export const sellerInvoices = async (
   )
 
   invoices.data = invoices.data.map((invoice: any) => {
-    const { id, invoiceCreatedDate } = invoice
+    const { id, invoiceCreatedDate, jsonData } = invoice
+
+    const { sapCommissionId, orders } = JSON.parse(jsonData)
+
+    const isOutbound =
+      orders[0].items[0].positionType === 'outbound' ? 'Rechnung' : 'Gutschrift'
 
     const newId = `${id.split('_')[0]}_${invoiceCreatedDate.replace(
       /-/g,
       ''
-    )}_${id.split('_')[id.split('_').length - 1]}`
+    )}_${sapCommissionId}_${isOutbound}`
 
     return {
       ...invoice,

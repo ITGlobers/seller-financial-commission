@@ -7,7 +7,7 @@
     "subSectionItems": [
       {
         "labelId": "admin/navigation.detail-title",
-        "path": "/admin/commission-detail"
+        "path": "/admin/commission-report/detail"
       }
     ]
   }

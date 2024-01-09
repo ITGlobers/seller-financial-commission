@@ -1,7 +1,7 @@
 {
-  "vendor": "obidev",
+  "vendor": "obi",
   "name": "seller-financial-commission",
-  "version": "0.0.4-beta.0",
+  "version": "0.0.10",
   "title": "Financial commission for sellers",
   "description": "",
   "builders": {
@@ -13,10 +13,12 @@
     "graphql": "1.x"
   },
   "dependencies": {
-    "obidev.components-financial-commission": "1.0.4-beta.0",
+    "obi.components-financial-commission": "1.x",
     "vtex.render-runtime": "8.x"
   },
-  "registries": ["smartcheckout"],
+  "registries": [
+    "smartcheckout"
+  ],
   "policies": [
     {
       "name": "outbound-access",
@@ -31,7 +33,9 @@
       "url": "https://support.vtex.com/hc/requests"
     },
     "type": "free",
-    "availableCountries": ["*"]
+    "availableCountries": [
+      "*"
+    ]
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

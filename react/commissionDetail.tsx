@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRuntime } from 'vtex.render-runtime'
-import { detail as Detail } from 'obidev.components-financial-commission'
+import { detail as Detail } from 'obi.components-financial-commission'
 
 import SELLER_ORDERS from './graphql/sellerOrders.gql'
 import CREATE_INVOICE from './graphql/createInvoice.gql'

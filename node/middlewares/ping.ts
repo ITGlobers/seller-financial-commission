@@ -7,7 +7,7 @@ export async function ping(
   ctx.set('Cache-Control', 'no-cache, no-store')
   ctx.set('pragma', 'no-cache, no-store')
 
-  ctx.response.body = `Ping check`
+  ctx.response.body = `Ping check!`
 
   await next()
 }

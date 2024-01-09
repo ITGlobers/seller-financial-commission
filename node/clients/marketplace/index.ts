@@ -20,7 +20,7 @@ export default class MarketplaceAppClient extends IOClient {
     super(context, {
       ...options,
       authType: AuthType.bearer,
-      baseURL: `${protocol}://app.io.vtex.com/obidev.${appName}/v0`,
+      baseURL: `${protocol}://app.io.vtex.com/${process.env.VTEX_APP_VENDOR}.${appName}/v0`,
       name: appName,
       headers: {
         ...options?.headers,
@@ -100,6 +100,21 @@ export default class MarketplaceAppClient extends IOClient {
     })
   }
 
+  public async payoutsById(
+    id: string,
+    sellerId: string,
+    marketplaceReference: MarketplaceReference
+  ) {
+    return this.http.get(
+      this.routes.payoutById(id, sellerId, marketplaceReference),
+      {
+        params: {
+          _fields: 'html',
+        },
+      }
+    )
+  }
+
   public async sellerOrders(
     marketplaceReference: MarketplaceReference,
     queryString: string
@@ -145,6 +160,12 @@ export default class MarketplaceAppClient extends IOClient {
         sellerId: string,
         { account, workspace }: MarketplaceReference
       ) => `/${account}/${workspace}/${baseRoute}/payout/${sellerId}/report`,
+      payoutById: (
+        id: string,
+        sellerId: string,
+        { account, workspace }: MarketplaceReference
+      ) =>
+        `/${account}/${workspace}/${baseRoute}/payout/${sellerId}/report/${id}`,
       payoutsFile: (
         id: string,
         type: string,
