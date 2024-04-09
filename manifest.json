@@ -25,6 +25,21 @@
         "host": "portal.vtexcommercestable.com.br",
         "path": "/api/fulfillment/pvt/affiliates"
       }
+    },
+    {
+      "name": "read-workspace-apps"
+    },
+    {
+      "name": "install-apps"
+    },
+    {
+      "name": "colossus-fire-event"
+    },
+    {
+      "name": "colossus-write-logs"
+    },
+    {
+      "name": "install-apps"
     }
   ],
   "billingOptions": {
