@@ -7,15 +7,18 @@
   "routes": {
     "invoiceExternalFile": {
       "path": "/_v/private/financial-commission/external/invoice/file/:id/type/:type",
-      "public": true
+      "public": true,
+      "settingsType": "workspace"
     },
     "payoutReportFile": {
       "path": "/_v/private/financial-commission/external/payout/file/:id/type/:type",
-      "public": true
+      "public": true,
+      "settingsType": "workspace"
     },
     "ping": {
       "path": "/_v/financial-commission/ping",
-      "public": true
+      "public": true,
+      "settingsType": "workspace"
     }
   }
 }

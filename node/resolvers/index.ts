@@ -6,17 +6,18 @@ import { sellerInvoices } from './sellerInvoices'
 import { sellerOrders } from './sellerOrders'
 import { searchPayoutReport } from './sellerPayouts'
 import { getPayout } from './getPayoutById'
+import { resolversWrapper } from '../utils/resolversWrapper'
 
-export const queries = {
+export const queries = resolversWrapper({
   sellerInvoices,
   getInvoice,
   sellerOrders,
   getTemplate,
   searchPayoutReport,
   getPayout,
-}
+})
 
-export const mutations = {
+export const mutations = resolversWrapper({
   createInvoice,
   sendEmail,
-}
+})
