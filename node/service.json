@@ -4,6 +4,15 @@
   "timeout": 5,
   "minReplicas": 2,
   "maxReplicas": 4,
+  "events": {
+    "onAppsInstalled": {
+      "sender": "apps",
+      "keys": [
+        "linked",
+        "setup"
+      ]
+    }
+  },
   "routes": {
     "invoiceExternalFile": {
       "path": "/_v/private/financial-commission/external/invoice/file/:id/type/:type",

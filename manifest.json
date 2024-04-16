@@ -26,6 +26,22 @@
         "host": "portal.vtexcommercestable.com.br",
         "path": "/api/fulfillment/pvt/affiliates"
       }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/scheduler/*"
+      }
+    },
+    {
+      "name": "ADMIN_DS"
+    },
+    {
+      "name": "install-apps"
+    },
+    {
+      "name": "colossus-fire-event"
     }
   ],
   "billingOptions": {

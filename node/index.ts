@@ -7,9 +7,13 @@ import { queries, mutations } from './resolvers'
 import { ping } from './middlewares/ping'
 import { getInvoiceExternalFile } from './middlewares/getInvoiceExternalFile'
 import { getPayoutExternalFile } from './middlewares/getPayoutExternalFile'
+import { onAppsInstalled } from './events/initialConfiguration'
 
 export default new Service<Clients, RecorderState, ParamsContext>({
   clients,
+  events: {
+    onAppsInstalled,
+  },
   routes: {
     invoiceExternalFile: method({
       GET: [getInvoiceExternalFile],

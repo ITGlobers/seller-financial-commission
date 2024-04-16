@@ -2,6 +2,7 @@ import { ClientsConfig, IOClients, LRUCache } from '@vtex/api'
 
 import MarketplaceAppClient from './marketplace'
 import AffiliatesClient from './affiliates'
+import Scheduler from './scheduler'
 
 export class Clients extends IOClients {
   public get marketplace() {
@@ -10,6 +11,10 @@ export class Clients extends IOClients {
 
   public get affiliate() {
     return this.getOrSet('affiliate', AffiliatesClient)
+  }
+
+  public get scheduler() {
+    return this.getOrSet('scheduler', Scheduler)
   }
 
   /* public marketplaceV2(marketplaceURL: string, context: IOContext): any {
