@@ -15,12 +15,13 @@ interface MarketplaceReference {
 export default class MarketplaceAppClient extends IOClient {
   constructor(context: IOContext, options?: InstanceOptions) {
     const protocol = useHttps ? 'https' : 'http'
+    const VTEX_MARKETPLACE_APP_VENDOR = 'obi'
     const appName = 'marketplace-financial-commission'
 
     super(context, {
       ...options,
       authType: AuthType.bearer,
-      baseURL: `${protocol}://app.io.vtex.com/${process.env.VTEX_APP_VENDOR}.${appName}/v0`,
+      baseURL: `${protocol}://app.io.vtex.com/${VTEX_MARKETPLACE_APP_VENDOR}.${appName}/v0`,
       name: appName,
       headers: {
         ...options?.headers,
