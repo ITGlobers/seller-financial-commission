@@ -1,7 +1,7 @@
 {
   "vendor": "obidev",
   "name": "seller-financial-commission",
-  "version": "0.0.10",
+  "version": "1.0.0",
   "title": "Financial commission for sellers",
   "description": "",
   "builders": {
