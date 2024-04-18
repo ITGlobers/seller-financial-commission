@@ -1,7 +1,7 @@
 {
   "vendor": "obistage",
   "name": "seller-financial-commission",
-  "version": "0.0.10",
+  "version": "1.0.0",
   "title": "Financial commission for sellers",
   "description": "",
   "builders": {
@@ -16,7 +16,9 @@
     "obi.components-financial-commission": "1.x",
     "vtex.render-runtime": "8.x"
   },
-  "registries": ["smartcheckout"],
+  "registries": [
+    "smartcheckout"
+  ],
   "policies": [
     {
       "name": "outbound-access",
@@ -47,7 +49,9 @@
       "url": "https://support.vtex.com/hc/requests"
     },
     "type": "free",
-    "availableCountries": ["*"]
+    "availableCountries": [
+      "*"
+    ]
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
